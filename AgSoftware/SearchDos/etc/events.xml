@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="customer_login">
+        <observer name="agSoftware_assign_customer_company" instance="AgSoftware\SearchDos\Observer\Observer" />
+    </event>
+
+    <event name="searched">
+        <observer name="AgSoftware_promocional_search" instance="AgSoftware\SearchDos\Observer\Promocional"/>
+    </event>
+
+    <event name="sales_order_save_before">
+        <observer name="AgSoftware_save_order" instance="AgSoftware\SearchDos\Observer\Order"/>
+    </event>
+    	
+</config>

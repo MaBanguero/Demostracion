@@ -1,0 +1,76 @@
+& when (@media-common =true) {
+    .main-list-search {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        border: 1x solid #c2c2c2;
+        border-top: 1px solid #c2c2c2;
+        margin-top: 9px;
+        border-radius: 10px;
+        background-color: #f2f6fa;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        padding-right: 5px;
+
+    }
+
+    .search-autocomplete {
+        position: absolute;
+        width: 503px;
+        display: block;
+        left: 14px;
+        top: 32px;
+
+    }
+
+    .block-search {
+        float: right;
+        padding-left: 15px;
+        position: relative;
+        width: 503px;
+        z-index: 4;
+    }
+
+    body>div.page-wrapper>header>div.header.content>div.block.block-search {
+        float: right;
+        padding-left: 15px;
+        position: relative;
+        width: 503px;
+        z-index: 4;
+    }
+
+    .li-search {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+
+        img {
+            width: 75px;
+            height: 75px;
+        }
+
+        .li-name {
+            align-content: center;
+            align-self: center;
+        }
+        
+    }
+    .li-image{
+        display: flex;
+        justify-content: flex-end;
+    }
+    .categories{
+        list-style: none;
+    }
+    .link {
+        align-items: center;
+        align-content: center;
+        padding-top: 5px;
+        padding-left: 5px;
+        a {
+            color: black;
+            text-decoration-color: #c2c2c2;
+        }
+    }
+    .price{
+        font-weight: bold;
+    }
+}

@@ -1,0 +1,15 @@
+<?php
+$response= $block->getResponse();
+$currency= number_format((float)$response['amount'],2);
+?>
+<div class="data">
+    
+        <h2 class="name">Bienvenido De Nuevo <?= $response['name']?> </h2>
+        <h3 class="other-data">Fecha: <span><?= $response['processingDate']?></span></h3>
+        <h3 class="other-data1">Codigo de Referencia: <span><?= $response['referenceCode']?></span></h3>
+        <h3 class="other-data2">Estado Transacion: <span><?= $response['lapResponseCode']?></span></h3>
+        <h3 class="other-data3">Tarjeta de Pago: <span><?= $response['lapPaymentMethod']?></span></h3>
+        <h3 class="other-data4">Total: <span><?= $currency." ". $response['currency']?></span></h3>
+        <h3 class="other-data5">Metodo de envio: <span><?= $response['shipping_method']?></span></h3>
+    
+</div>

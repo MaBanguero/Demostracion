@@ -1,0 +1,24 @@
+<?php
+$responseUrl=$block->getResponseurl();
+$confirmationUrl=$block->getConfirmationurl();
+?>
+<form method="post" id="payuform" style="display: none;" action="https://sandbox.checkout.payulatam.com/ppp-web-gateway-payu/">
+    <input name="merchantId" type="hidden" value="<?=$block->getMerchantid()?>">
+    <input name="accountId" type="hidden" value="<?=$block->getAccountid()?>">
+    <input name="description" type="hidden" value="<?=$block->getDescription()?>">
+    <input name="referenceCode" type="hidden" value="<?=$block->getReferencecode()?>">
+    <input name="amount" type="hidden" value="<?=$block->getAmount()?>">
+    <input name="tax" type="hidden" value="<?=$block->getTax()?>">
+    <input name="taxReturnBase" type="hidden" value="<?=$block->getTaxreturnbase()?>">
+    <input name="currency" type="hidden" value="<?=$block->getCurrency()?>">
+    <input name="signature" type="hidden" value="<?=$block->getSignature()?>">
+    <input name="test" type="hidden" value="<?=$block->getTest()?>">
+    <input name="buyerEmail" type="hidden" value="<?=$block->getBuyeremail()?>">
+    <input name="responseUrl" type="hidden" value="<?=$block->getUrl($responseUrl)?>">
+    <input name="confirmationUrl" type="hidden" value="<?=$block->getUrl($confirmationUrl)?>">
+    <input name="Submit" id="send" type="submit" value="Enviar">
+</form>
+<h1>Por favor espere un momento, pronto sera redirigido a PayU</h1>
+<script >
+     document.getElementById('send').click() 
+</script>

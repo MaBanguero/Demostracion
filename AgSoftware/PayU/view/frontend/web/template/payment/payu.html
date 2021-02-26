@@ -1,0 +1,65 @@
+<!--
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<div class="payment-method" data-bind="css: {'_active': (getCode() == isChecked())}">
+    <div class="payment-method-title field choice">
+        <input type="radio" name="payment[method]" class="radio"
+            data-bind="attr: {'id': getCode()}, value: getCode(), checked: isChecked, click: selectPaymentMethod, visible: isRadioButtonVisible()" />
+        <label data-bind="attr: {'for': getCode()}" class="label"><span data-bind="text: getTitle()"></span></label>
+    </div>
+    <div class="payment-method-content">
+        <!-- ko foreach: getRegion('messages') -->
+        <!-- ko template: getTemplate() -->
+        <!-- /ko -->
+        <!--/ko-->
+        <div class="payment-method-billing-address">
+            <!-- ko foreach: $parent.getRegion(getBillingAddressFormName()) -->
+            <!-- ko template: getTemplate() -->
+            <!-- /ko -->
+            <!--/ko-->
+        </div>
+        <p data-bind="html: getInstructions()"></p>
+        <div class="checkout-agreements-block">
+            <!-- ko foreach: $parent.getRegion('before-place-order') -->
+            <!-- ko template: getTemplate() -->
+            <!-- /ko -->
+            <!--/ko-->
+        </div>
+        <div class="actions-toolbar">
+            <div class="primary">
+                <button class="action primary checkout" type="submit" data-bind="
+                        click: pay,
+                        attr: {title: $t('Place Order')},
+                        css: {disabled: !isPlaceOrderActionAllowed()},
+                        enable: (getCode() == isChecked())
+                        ">
+                    <span data-bind="i18n: 'Place Order'"></span>
+                </button>
+            </div>
+        </div>
+        <script type="text/script">
+            var form = $(
+                '<form method="post" style="display:none" id="payuform" action="https://sandbox.checkout.payulatam.com/ppp-web-gateway-payu/">' +
+                '<input name="merchantId"    type="hidden"  value="508029">' +
+                '<input name="accountId"     type="hidden"  value="512321">' +
+                '<input name="description"   type="hidden"  value="Test PAYU">' +
+                '<input name="referenceCode" type="hidden"  value="TestPayU">' +
+                '<input name="amount"        type="hidden"  value="20000">' +
+                '<input name="tax"           type="hidden"  value="3193">' +
+                '<input name="taxReturnBase" type="hidden"  value="16806">' +
+                '<input name="currency"      type="hidden"  value="COP">' +
+                '<input name="signature"     type="hidden"  value="7ee7cf808ce6a39b17481c54f2c57acc">' +
+                '<input name="test"          type="hidden"  value="1">' +
+                '<input name="buyerEmail"    type="hidden"  value="test@test.com">' +
+                '<input name="responseUrl"   type="hidden"  value="http://www.test.com/response">' +
+                '<input name="confirmationUrl" type="hidden"  value="http://www.test.com/confirmation">' +
+                '<input name="Submit" type="submit"  value="Enviar" >' +
+                '</form>');
+            $(document.body).append(form);
+
+        </script>
+    </div>
+</div>

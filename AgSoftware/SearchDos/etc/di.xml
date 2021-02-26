@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!-- Plugins -->
+    <type name="AgSoftware\SearchDos\Rewrite\Autocomplete">
+        <plugin name="AgSoftware_Search_Plugin_Autocomplete" type="AgSoftware\SearchDos\Plugins\Autocomplete"
+            sortOrder="1" disabled="false" />
+    </type>
+    <type name="AgSoftware\SearchDos\Rewrite\Autocomplete">
+        <plugin name="AgSoftware_dispacth_event" type="AgSoftware\SearchDos\Plugins\Autocomplete"/>
+    </type>
+
+    <!-- Rewrite Sobreescritura -->
+    <preference for="Omnipro\Search\Rewrite\Autocomplete" type="AgSoftware\SearchDos\Rewrite\Autocomplete" />
+</config>
